@@ -1,9 +1,9 @@
-name: 腾讯视频签到
+name: 百度签到
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "30 16 * * *"
+        - cron: "30 04 * * *"
     watch:
         types: [started]
 
@@ -20,12 +20,11 @@ jobs:
             - name: npm install
               run: |
                   npm install
-            - name: "运行【腾讯视频签到】"
+            - name: "运行【百度签到】"
               run: |
-                  node function/v_video.js
+                  node function/tieba.js
               env:
-                  V_REF_URL: ${{ secrets.V_REF_URL }}
-                  V_COOKIE: ${{ secrets.V_COOKIE }}
+                  BDUSS: ${{ secrets.BDUSS }}
                   SEND_KEY: ${{ secrets.SEND_KEY }}
                   PUSH_KEY: ${{ secrets.PUSH_KEY }}
                   BARK_PUSH: ${{ secrets.BARK_PUSH }}
